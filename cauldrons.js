@@ -1225,7 +1225,7 @@ for (let i = 0; i < data.cauldrons.winter_seasson.length; ++i) {
 }
 totalCauldronsBrokenPercent = totalCauldronsWinter % totalCauldronsBroken;
 
-console.log("total winterBrokenPercent: %" + totalCauldronsBroken);
+console.log("total winterBrokenPercent: %" + totalCauldronsBrokenPercent);
 
 totalCauldronsBrokenPercent = 0;
 
@@ -1237,7 +1237,7 @@ for (let i = 0; i < data.cauldrons.spring_seasson.length; ++i) {
 
 totalCauldronsBrokenPercent = totalCauldronsSpring % totalCauldronsBroken;
 
-console.log("total springBrokenPercent: %" + totalCauldronsBroken);
+console.log("total springBrokenPercent: %" + totalCauldronsBrokenPercent);
 
 totalCauldronsBrokenPercent = 0;
 
@@ -1249,7 +1249,7 @@ for (let i = 0; i < data.cauldrons.summer_seasson.length; ++i) {
 
 totalCauldronsBrokenPercent = totalCauldronsSummer % totalCauldronsBroken;
 
-console.log("total summerBrokenPercent: %" + totalCauldronsBroken);
+console.log("total summerBrokenPercent: %" + totalCauldronsBrokenPercent);
 
 totalCauldronsBrokenPercent = 0;
 
@@ -1261,6 +1261,103 @@ for (let i = 0; i < data.cauldrons.autumn_seasson.length; ++i) {
 
 totalCauldronsBrokenPercent = totalCauldronsAutumn % totalCauldronsBroken;
 
-console.log("total autumnBrokenPercent: %" + totalCauldronsBroken);
+console.log("total autumnBrokenPercent: %" + totalCauldronsBrokenPercent);
+
+///Mostrar el porcentaje de cauldrons de "Plexiglass" en "winter_seasson"
+let percentPlexiWinter = 0;
+let totalCauldronsPlexi = 0;
+
+for (let i = 0; i < data.cauldrons.winter_seasson.length; ++i) {
+    if (data.cauldrons.winter_seasson[i].type === "Plexiglass") {
+        totalCauldronsPlexi ++;
+    }
+}
+percentPlexiWinter = totalCauldronsPlexi % totalCauldronsWinter;
+console.log("total de caauldrons plexi de winter: %" + percentPlexiWinter);
+
+
+///Mostrar el número de cauldrons de color "Orange" en buen estado
+
+let totalOrange = 0;
+
+for (let i = 0; i < data.cauldrons.winter_seasson.length; ++i) {
+    if (data.cauldrons.winter_seasson[i].color === "Orange" && data.cauldrons.winter_seasson[i].damaged === false) {
+        totalOrange++;
+    }
+}
+
+for (let i = 0; i < data.cauldrons.spring_seasson.length; ++i) {
+    if (data.cauldrons.spring_seasson[i].damaged === false && data.cauldrons.spring_seasson[i].color === "Orange") {
+        totalOrange++;
+    }
+}
+
+for (let i = 0; i < data.cauldrons.summer_seasson.length; ++i) {
+    if (data.cauldrons.summer_seasson[i].damaged === false && data.cauldrons.summer_seasson[i].color === "Orange") {
+        totalOrange++;
+    }
+}
+
+
+for (let i = 0; i < data.cauldrons.autumn_seasson.length; ++i) {
+    if (data.cauldrons.autumn_seasson[i].damaged === false && data.cauldrons.autumn_seasson[i].color === "Orange") {
+        totalOrange++;
+    }
+}
+
+console.log("total Orange and good state: " + totalOrange);
+
+
+//Mostrar el listado de posibles colores de cauldrons, sin repetir color.
+
+let allColors = [];
+
+allColors.push(data.cauldrons.winter_seasson[0].color);
+console.log(allColors);
+
+
+
+
+for (let i = 0; i < data.cauldrons.winter_seasson.length; ++i) {
+    if (allColors.length > 0){
+        for (let j = 0; j < allColors.length; ++j){
+            if (allColors[j] != data.cauldrons.winter_seasson[i].color){
+                allColors.push(data.cauldrons.winter_seasson[i].color);
+            }
+        }
+    }
+    else {
+        //allColors.push(data.cauldrons.winter_seasson[i].color);
+        allColors = ["orange"] ;
+    }
+   
+}
+
+for (let i = 0; i < data.cauldrons.autumn_seasson.length; ++i) {
+    for (let j = 0; j < allColors.length; ++j){
+        console.log(allColors);
+        if (allColors[j] != data.cauldrons.autumn_seasson[i].color){
+            allColors.push(data.cauldrons.autumn_seasson[i].color);
+        }
+    }
+}
+
+for (let i = 0; i < data.cauldrons.spring_seasson.length; ++i) {
+    for (let j = 0; j < allColors.length; ++j){
+        if (allColors[j] != data.cauldrons.spring_seasson[i].color){
+            allColors.push(data.cauldrons.spring_seasson[i].color);
+        }
+    }
+}
+
+for (let i = 0; i < data.cauldrons.summer_seasson.length; ++i) {
+    for (let j = 0; j < allColors.length; ++j){
+        if (allColors[j] != data.cauldrons.summer_seasson[i].color){
+            allColors.push(data.cauldrons.summer_seasson[i].color);
+        }
+    }
+}
+
+console.log("all the colors with no repetition: " + allColors);
 
 
