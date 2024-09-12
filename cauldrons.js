@@ -1360,4 +1360,5 @@ for (let i = 0; i < data.cauldrons.summer_seasson.length; ++i) {
 
 console.log("all the colors with no repetition: " + allColors);
 
-
+let color = "yellor"
+export default color;
