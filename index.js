@@ -216,8 +216,8 @@ function findMostProtein (donuts) {
   ///////////////////////
   function addVitamin (donuts) {
     for (let i = 0; i < donuts.length; ++i){
-      if (donuts.name === "Magic Fusion") {donuts[i].nutrition_facts.nutrition.vitamines.push(2/*{type: "Nitacina"}*/); console.log(donuts);
-      console.log(donuts.name + " " + donuts[i].nutrition_facts.nutrition.vitamines.forEach((element) => console.log(element.type)))}
+      if (donuts[i].name === "Magic Fusion") {donuts[i].nutrition_facts.nutrition.vitamines.push({type: "Nitacina"}); console.log("vitaminas de Magic Fusion: ");
+      donuts[i].nutrition_facts.nutrition.vitamines.forEach((element) => console.log(element.type));}
     }
   }
 
