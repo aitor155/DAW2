@@ -105,7 +105,6 @@ function findMostProtein (donuts) {
   //////////////////////////
 
   function sumSaturateFat (donuts) {
-    console.log("show sum of all saturate fats of all donuts: ");
     let saturateFat;
     let totalSaturateFat = 0;
     for (let i = 0; i < donuts.length; ++i) {
@@ -233,7 +232,7 @@ function findMostProtein (donuts) {
   function addAlergen (donuts) {
     for (let i = 0; i < donuts.length; ++i){
       Object.assign(donuts[i], { alergen: "gluten free" });
-      console.log(donuts[i]);
+      console.log(donuts[i].name + " " + donuts[i].alergen);
     }
   }
 
